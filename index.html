@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="todo.css">
+</head>
+<body>
+    <h1 class="heading">TO DO APPLICATION</h1>
+    <div class="ip">
+        
+        <input type="text" placeholder="enter task" id="taskip">
+        <button type="submit" id="button" onclick='add()' >Add</button>
+        
+        
+        
+           
+      <!-- <footer>
+          icons:<a target="_blank" href="https://icons8.com/icon/OyGfrOzh4XAT/select-checkmark-symbol-to-choose-true-answer">Select checkmark symbol to choose true answer</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+      </footer> -->
+             
+    </div>
+    <div class="print">
+        <table id="demo">
+            <tbody></tbody>
+        </table> 
+     
+    </div>
+    <script>
+        let table=document.createElement('table')
+        
+     function add()
+     {       let row=document.createElement('tr');
+            let coloumn1=document.createElement('td');
+            let coloumn2=document.createElement('td');
+            let coloumn3=document.createElement('td');
+            let check=document.createElement('button');
+            check.innerHTML='done';
+            let remove = document.createElement('button');
+            remove.innerHTML='remove'; 
+            let task=document.getElementById('taskip').value;
+            coloumn1.setAttribute('class','col1');
+            coloumn1.append(task);
+            coloumn2.appendChild(check);
+            coloumn3.appendChild(remove);
+            coloumn2.setAttribute('class','col');
+            coloumn3.setAttribute('class','col');
+            check.setAttribute('class','bt');
+            remove.setAttribute('class','bt');
+            if(task==''){
+                alert('Enter task please!!');
+            }
+            else{
+            row.append(coloumn1,coloumn2,coloumn3);}
+    
+            console.log(row);
+            document.getElementById('demo').appendChild(row);
+            check.addEventListener('click',function(){
+                if(coloumn1.style.textDecoration=='line-through')
+                {
+                    coloumn1.style.textDecoration='';
+                }
+                else{
+                    coloumn1.style.textDecoration='line-through'
+                }
+                
+            })
+            remove.addEventListener('click',function(){
+                row.remove(coloumn1,coloumn2,coloumn3);
+            })
+            
+             row.addEventListener('mouseenter',function(){
+                
+                 row.style.backgroundColor='rgb(116, 119, 118 )';
+                 
+             })
+             row.addEventListener('mouseleave',function(){
+                 row.style.backgroundColor='';
+                 row.style.opacity='';
+             })
+  
+      document.getElementById('taskip').value='';
+
+     }
+     
+
+
+    </script>
+</body>
+</html>
